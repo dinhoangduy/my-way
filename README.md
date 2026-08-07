@@ -8,41 +8,55 @@ Backend Guided Mode is usable now for learning Python + FastAPI by building a re
 
 The learner owns the application source code. The AI owns `.myway/` learning state.
 
-## Install into a learning project
+## Install with the CLI
 
-For now, copy this folder from the repository:
+Inside the project you want to learn in, run:
+
+```bash
+npx my-way
+```
+
+The CLI currently guides you through:
+
+```text
+AI agent      -> Antigravity
+Domain        -> Backend
+Learning mode -> Guided
+```
+
+It installs the bundled MyWay skill at:
 
 ```text
 .agents/skills/myway/
 ```
 
-into the project you want to learn inside, preserving the same path.
+If the skill already exists, the CLI asks before replacing it. You can explicitly overwrite it with:
 
-Your learning project should look like:
-
-```text
-my-backend-project/
-└── .agents/
-    └── skills/
-        └── myway/
-            ├── SKILL.md
-            ├── core/
-            └── frameworks/
+```bash
+npx my-way --force
 ```
 
-Do not create `.myway/` yourself. MyWay creates it automatically.
+> The npm package still needs to be published before `npx my-way` works from the public npm registry. Until then, clone this repository and run `npm install && npm start` from inside your target project using a local package/link workflow.
+
+Do not create `.myway/` yourself. The learning skill creates and maintains it when the learning session starts.
 
 ## Start Backend Guided Mode
 
-Open the learning project in Antigravity and say:
+After installing the skill, open the project in Antigravity and say:
+
+```text
+Start backend-guided.
+```
+
+If you do not name a project, MyWay chooses a beginner-sized backend project automatically, creates the first requirement, and begins the first guided step.
+
+If you want a specific project, say for example:
 
 ```text
 Start backend-guided. I want to build a Todo API.
 ```
 
-You may replace `Todo API` with your own project idea. If you do not name a project, MyWay chooses a beginner-sized backend project.
-
-On first run, the AI should automatically create:
+On first run, the AI automatically creates:
 
 ```text
 .myway/
@@ -55,11 +69,11 @@ On first run, the AI should automatically create:
 └── decisions/
 ```
 
-Then it should teach the first small step and stop for you to implement it.
+Then it teaches one small step and stops for you to implement it.
 
 ## Daily usage
 
-You normally only need natural short commands:
+You normally only need short commands:
 
 ```text
 continue
@@ -67,9 +81,10 @@ done
 help
 hint
 review
+status
 ```
 
-`continue` resumes from repository state. `done` makes the AI inspect your current step before advancing. `help` and `hint` keep you on the same step. `review` reviews the active requirement.
+`continue` resumes from repository state. `done` makes the AI inspect your current step before advancing. `help` and `hint` keep you on the same step. `review` reviews the active requirement. `status` shows a compact progress snapshot.
 
 You never need to manually update `.myway/`.
 
@@ -106,9 +121,20 @@ MyWay persists only meaningful checkpoints. Normal questions, debugging conversa
 
 Source code remains the source of truth for implementation details. `.myway/` stores learning state, progress, important mistakes, requirements, and non-obvious decisions.
 
+## Development
+
+```bash
+npm install
+npm test
+npm start
+```
+
+The CLI package bundles `.agents/skills/myway/` directly, so the installed skill always matches the version shipped with the npm package.
+
 ## Status
 
 - `backend-guided`: available
+- npm CLI: implemented, not yet published
 - `backend-independent`: later
 - database-design modes: later
 
