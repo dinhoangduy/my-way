@@ -13,7 +13,7 @@ The learner owns the application source code. The AI owns `.myway/` learning sta
 Inside the project you want to learn in, run:
 
 ```bash
-npx my-way
+npx @dinhoangduy/my-way
 ```
 
 The CLI currently guides you through:
@@ -33,10 +33,8 @@ It installs the bundled MyWay skill at:
 If the skill already exists, the CLI asks before replacing it. You can explicitly overwrite it with:
 
 ```bash
-npx my-way --force
+npx @dinhoangduy/my-way --force
 ```
-
-> The npm package still needs to be published before `npx my-way` works from the public npm registry. Until then, clone this repository and run `npm install && npm start` from inside your target project using a local package/link workflow.
 
 Do not create `.myway/` yourself. The learning skill creates and maintains it when the learning session starts.
 
@@ -121,6 +119,29 @@ MyWay persists only meaningful checkpoints. Normal questions, debugging conversa
 
 Source code remains the source of truth for implementation details. `.myway/` stores learning state, progress, important mistakes, requirements, and non-obvious decisions.
 
+## Adding new learning frameworks later
+
+MyWay is intentionally designed so future learning domains can be added without rebuilding the core engine.
+
+Examples:
+
+```text
+backend-guided
+backend-independent
+database-design-guided
+database-design-independent
+system-design-guided
+kubernetes-guided
+```
+
+The core under `.agents/skills/myway/core/` should remain stable. Domain-specific teaching behavior belongs in a framework. Guided and Independent modes should stay separate because they intentionally provide different levels of help.
+
+When adding a new framework, follow `docs/framework-contract.md`. New frameworks should reuse core bootstrap, recovery, checkpoint, command, and state behavior instead of duplicating it.
+
+A framework must not be exposed in the CLI until its end-to-end learning flow is actually usable.
+
+The project should expand from real learning needs rather than adding many frameworks in advance.
+
 ## Development
 
 ```bash
@@ -131,11 +152,18 @@ npm start
 
 The CLI package bundles `.agents/skills/myway/` directly, so the installed skill always matches the version shipped with the npm package.
 
+After changing the bundled skill or CLI, bump the npm version before publishing again:
+
+```bash
+npm version patch
+npm publish --access public
+```
+
 ## Status
 
 - `backend-guided`: available
-- npm CLI: implemented, not yet published
-- `backend-independent`: later
-- database-design modes: later
+- npm CLI: available as `@dinhoangduy/my-way`
+- `backend-independent`: planned
+- database-design modes: planned
 
 The current priority is to use Backend Guided Mode on real learning projects and improve it from actual friction encountered while learning.
