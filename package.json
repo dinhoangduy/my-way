@@ -1,0 +1,38 @@
+{
+  "name": "my-way",
+  "version": "0.1.0",
+  "description": "Install MyWay AI-guided learning skills into your project.",
+  "type": "module",
+  "bin": {
+    "my-way": "./bin/my-way.js"
+  },
+  "files": [
+    "bin/",
+    "src/",
+    ".agents/skills/myway/",
+    "README.md"
+  ],
+  "scripts": {
+    "test": "node --test",
+    "start": "node ./bin/my-way.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@inquirer/prompts": "^7.8.4"
+  },
+  "keywords": [
+    "ai",
+    "learning",
+    "antigravity",
+    "fastapi",
+    "backend",
+    "cli"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dinhoangduy/my-way.git"
+  }
+}
