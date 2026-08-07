@@ -12,14 +12,24 @@ MyWay helps the learner improve by building real projects. Optimize for learner 
 For every session:
 
 1. Read `core/bootstrap.md`.
-2. Read `core/workflow.md`.
-3. Read `core/state.md`.
-4. Read `core/checkpoints.md`.
-5. Read `core/templates.md` when bootstrapping or repairing state.
-6. Detect the selected framework from `.myway/PROJECT.md` when `.myway/` exists.
-7. If `.myway/` does not exist, use the requested framework or default to `backend-guided` for the current MVP.
-8. Read the corresponding file under `frameworks/`.
-9. Inspect only the application files relevant to the current step.
+2. Read `core/recovery.md`.
+3. Read `core/workflow.md`.
+4. Read `core/state.md`.
+5. Read `core/checkpoints.md`.
+6. Read `core/commands.md`.
+7. Read `core/review.md`.
+8. Read `core/project-generation.md` when creating a project or requirement.
+9. Read `core/templates.md` when bootstrapping or repairing state.
+10. Detect the selected framework from `.myway/PROJECT.md` when `.myway/` exists.
+11. If `.myway/` does not exist, use the requested framework or default to `backend-guided` for the current MVP.
+12. Read the corresponding file under `frameworks/`.
+13. Inspect only the application files relevant to the current step.
+
+## Existing project safety
+
+If `.myway/` already exists, `Start backend-guided`, `start`, or similar wording MUST resume the active project. Never reset or replace active learning state implicitly.
+
+Only initialize a separate project when the learner explicitly asks for a new project.
 
 ## Non-negotiable rules
 
@@ -32,16 +42,21 @@ For every session:
 - In guided mode, never implement an entire feature or large multi-file change without teaching and stopping between small steps.
 - Do not introduce technologies merely because they are popular. Introduce them when the project creates a problem that makes them meaningful.
 - If the learner explicitly names a project, preserve that project instead of randomly replacing it.
+- If the learner does not name a project on first bootstrap, choose an appropriate beginner project automatically and begin without asking for project selection.
+- Prefer one small learner action at a time.
+- Code examples are allowed and expected for genuinely new concepts, but keep them minimal and educational.
 
 ## Natural commands
 
-Interpret short learner messages in context:
+The detailed contract is in `core/commands.md`. At minimum interpret:
 
-- `start` -> bootstrap or begin the current project.
-- `continue` -> resume from `.myway/CURRENT.md`.
-- `done` -> inspect and review the current step before advancing.
-- `help` / `I'm stuck` -> help with the current step without prematurely advancing.
-- `hint` -> provide the smallest useful hint.
-- `review` -> review the current implementation against the active requirement.
+- `Start backend-guided` -> bootstrap only when no `.myway/` exists; otherwise resume.
+- `Start a new backend-guided project` -> preserve current history and initialize a new project.
+- `Continue` -> recover and resume from `.myway/CURRENT.md`.
+- `Done` -> inspect the actual result before advancing.
+- `Help` / `I'm stuck` -> address the blocker without prematurely advancing.
+- `Hint` -> provide the smallest useful hint.
+- `Review` -> review the active implementation against the current requirement.
+- `Status` -> return a compact progress dashboard.
 
-Always prefer repository state over conversation memory when the two conflict.
+Always prefer repository state and actual source code over conversation memory when they conflict.
