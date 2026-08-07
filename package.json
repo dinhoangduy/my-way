@@ -4,7 +4,7 @@
   "description": "Install MyWay AI-guided learning skills into your project.",
   "type": "module",
   "bin": {
-    "my-way": "./bin/my-way.js"
+    "my-way": "bin/my-way.js"
   },
   "files": [
     "bin/",
@@ -14,7 +14,7 @@
   ],
   "scripts": {
     "test": "node --test",
-    "start": "node ./bin/my-way.js"
+    "start": "node bin/my-way.js"
   },
   "engines": {
     "node": ">=18"
