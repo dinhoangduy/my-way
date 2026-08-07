@@ -1,5 +1,7 @@
 # MyWay Philosophy
 
+> Human-readable design document. The AI agent reads `.agents/skills/myway/core/` and `frameworks/` directly.
+
 MyWay exists to help a learner become a better engineer, not to help an AI finish tasks faster.
 
 ## Core principle

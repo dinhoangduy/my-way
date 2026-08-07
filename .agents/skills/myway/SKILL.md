@@ -11,19 +11,11 @@ MyWay helps the learner improve by building real projects. Optimize for learner 
 
 For every session:
 
-1. Read `core/bootstrap.md`.
-2. Read `core/recovery.md`.
-3. Read `core/workflow.md`.
-4. Read `core/state.md`.
-5. Read `core/checkpoints.md`.
-6. Read `core/commands.md`.
-7. Read `core/review.md`.
-8. Read `core/project-generation.md` when creating a project or requirement.
-9. Read `core/templates.md` when bootstrapping or repairing state.
-10. Detect the selected framework from `.myway/PROJECT.md` when `.myway/` exists.
-11. If `.myway/` does not exist, use the requested framework or default to `backend-guided` for the current MVP.
-12. Read the corresponding file under `frameworks/`.
-13. Inspect only the application files relevant to the current step.
+1. Read all files in `core/` to load reusable behavior.
+2. Detect the selected framework from `.myway/PROJECT.md` when `.myway/` exists.
+3. If `.myway/` does not exist, use the requested framework or default to `backend-guided` for the current MVP.
+4. Read the corresponding file under `frameworks/`.
+5. Inspect only the application files relevant to the current step.
 
 ## Existing project safety
 

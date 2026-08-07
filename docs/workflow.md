@@ -1,5 +1,7 @@
 # Workflow
 
+> Human-readable design document. The AI agent reads `.agents/skills/myway/core/` and `frameworks/` directly.
+
 MyWay uses a requirement-centered learning loop.
 
 1. Start one requirement.

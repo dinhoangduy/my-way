@@ -16,12 +16,12 @@ Inside the project you want to learn in, run:
 npx @dinhoangduy/my-way
 ```
 
-The CLI currently guides you through:
+The CLI auto-selects the only available configuration for the current MVP:
 
 ```text
-AI agent      -> Antigravity
-Domain        -> Backend
-Learning mode -> Guided
+Agent:  Antigravity
+Domain: Backend
+Mode:   Guided
 ```
 
 It installs the bundled MyWay skill at:
@@ -37,6 +37,8 @@ npx @dinhoangduy/my-way --force
 ```
 
 Do not create `.myway/` yourself. The learning skill creates and maintains it when the learning session starts.
+
+> **Should I commit `.myway/`?** Yes. It stores your learning progress, not chat history. Committing it lets you resume across machines and sessions.
 
 ## Start Backend Guided Mode
 

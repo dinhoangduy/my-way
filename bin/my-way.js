@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 
-import { confirm, select } from '@inquirer/prompts';
+import { confirm } from '@inquirer/prompts';
 import process from 'node:process';
 import { installMyWay } from '../src/install.js';
+import { smartSelect } from '../src/prompt.js';
 
 function hasFlag(flag) {
   return process.argv.slice(2).includes(flag);
@@ -13,28 +14,30 @@ async function main() {
 
   console.log('\nMyWay — learn by building real projects\n');
 
-  await select({
-    message: 'Choose your AI agent',
+  await smartSelect({
+    message: 'Agent:',
     choices: [
       { name: 'Antigravity', value: 'antigravity' },
     ],
   });
 
-  await select({
-    message: 'What do you want to learn?',
+  await smartSelect({
+    message: 'Domain:',
     choices: [
       { name: 'Backend', value: 'backend' },
-      { name: 'Database Design (coming soon)', value: 'database-design', disabled: true },
+      { name: 'Advanced Database (coming soon)', value: 'advanced-database', disabled: true },
     ],
   });
 
-  await select({
-    message: 'Choose learning mode',
+  await smartSelect({
+    message: 'Mode:',
     choices: [
       { name: 'Guided', value: 'guided' },
       { name: 'Independent (coming soon)', value: 'independent', disabled: true },
     ],
   });
+
+  console.log();
 
   let result = await installMyWay({ force: forceFromArgs });
 

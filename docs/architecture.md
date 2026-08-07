@@ -1,5 +1,7 @@
 # Architecture
 
+> Human-readable design document. The AI agent reads `.agents/skills/myway/core/` and `frameworks/` directly.
+
 MyWay is intentionally small. The first version is a filesystem-driven learning protocol for AI coding agents.
 
 ## Runtime model

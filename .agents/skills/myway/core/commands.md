@@ -4,7 +4,7 @@ The learner should not need special prompt syntax. Interpret these short natural
 
 ## `Start backend-guided`
 
-- If `.myway/` does not exist: bootstrap Backend Guided, select a beginner project if none was named, create REQ-001, and begin Step 1.
+- If `.myway/` does not exist: run the bootstrap protocol from `bootstrap.md`.
 - If `.myway/` exists: resume the active project. Never reset it.
 
 ## `Start a new backend-guided project`

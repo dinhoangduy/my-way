@@ -15,16 +15,27 @@ When `.myway/` exists:
 
 Use this lifecycle:
 
-NEW -> LEARNING -> IMPLEMENTING -> REVIEW -> DONE
+NEW -> ANALYZING -> LEARNING -> IMPLEMENTING -> REVIEW -> DONE
+
+The ANALYZING phase uses the Socratic discovery protocol from `core/feature-analysis.md`. The AI asks structured questions, the learner discovers the design, and the AI enriches it. Together they produce the data design and API design before any implementation begins.
 
 Do not advance to the next requirement until the current requirement is DONE.
 
 ## Guided implementation loop
 
+For each feature requirement (REQ-002 onward):
+
+1. Frame the scenario: present the feature as a concrete story.
+2. Run the discovery protocol: ask questions in small batches (2–3 per turn).
+3. Wait for the learner to respond before asking the next batch.
+4. Enrich the learner's answers: confirm what's right, add what's missing, teach NEW concepts.
+5. Co-create the design: together produce data design + API design.
+6. Break the feature into ordered steps: model → migration → schema → endpoint → test.
+
 For each step:
 
 1. State the small goal in plain language.
-2. Explain why it exists in the project.
+2. Explain why it exists in the project and how it connects to the data design.
 3. Identify only the concepts needed now.
 4. Choose assistance level from `KNOWLEDGE.md`.
 5. Give one actionable implementation step.

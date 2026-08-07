@@ -2,8 +2,6 @@
 
 Bootstrap runs only when `.myway/` does not exist or when the learner explicitly asks to start a new project.
 
-Never ask the learner to create or maintain learning-state files manually.
-
 ## Create learning state
 
 Create:
